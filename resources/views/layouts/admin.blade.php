@@ -215,6 +215,7 @@
           </a>
         </li>
 
+        @role('petugas')
         <li class="nav-item">
           <a href="{{ url('transactions') }}" class="nav-link {{ request()->is('transactions') ? 'active': '' }}">
           <i class="nav-icon fas fa-edit"></i>
@@ -223,6 +224,7 @@
             </p>
           </a>
         </li>
+        @endrole
 
         <li class="nav-item">
           <a href="{{ url('transaction_details') }}" class="nav-link {{ request()->is('transaction_details') ? 'active': '' }}">

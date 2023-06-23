@@ -8,9 +8,12 @@ use App\Models\Publisher;
 use App\Models\Catalog;
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\User;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -64,5 +67,32 @@ class HomeController extends Controller
         }
 
         return view('home', compact('jumlah_member', 'jumlah_book', 'jumlah_publisher', 'jumlah_transaction', 'dataset_donut', 'label_donut', 'dataset_chart'));
+    }
+
+    public function test_spatie() 
+    {
+        // Membuat roles dan permission
+        // $role = Role::create(['name' => 'petugas']);
+        // $permission = Permission::create(['name' => 'index transaction']);
+
+        // $role->givePermissionTo($permission);
+        // $permission->assignRole($role);
+
+        // membuat user terhubung ke roles
+        // memanggil user yang saat ini sedang login
+        // $user = auth()->user();                     
+         //meanggil user dengan id 
+        // $user = User::where('id', 2)->first();      
+        // $user->assignRole('petugas');
+        // return $user;
+
+        // menampilkan semua user dengan roles
+        // $user = User::with('roles')->get();
+        // return $user;
+
+        // menghapus roles
+        // $user = auth()->user();
+        // $user = User::where('id', 2)->first(); 
+        // $user->removeRole('petugas');
     }
 }

@@ -25,11 +25,14 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $members = Member::all();
-        $books = Book::all();
-        $transaction_details = TransactionDetail::all();
-
-        return view('admin.transaction', compact('members', 'books', 'transaction_details'));
+        if(auth()->user()->can('index transaction')){
+            $members = Member::all();
+            $books = Book::all();
+            $transaction_details = TransactionDetail::all();
+            return view('admin.transaction', compact('members', 'books', 'transaction_details'));
+        } else {
+            return abort('403');
+        }
     }
 
     public function api(Request $request)
